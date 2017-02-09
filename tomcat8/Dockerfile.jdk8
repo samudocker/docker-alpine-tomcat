@@ -9,6 +9,8 @@ ENV TOMCAT_MAJOR=8 \
     CATALINA_OUT=/dev/null
 
 RUN apk upgrade --update && \
+    apk add --update mc && \
+    apk add --update apache2-utils && \
     apk add --update curl && \
     curl -jksSL -o /tmp/apache-tomcat.tar.gz http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
     gunzip /tmp/apache-tomcat.tar.gz && \
